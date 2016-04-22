@@ -23,7 +23,8 @@
     "zendframework/zend-loader": "~2.5",
     "zendframework/zend-config": "~2.6",
     "zendframework/zend-modulemanager": "~2.7",
-    "zendframework/zend-view": "~2.6"
+    "zendframework/zend-view": "~2.6",
+    "zendframework/zend-servicemanager": "~3.0"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.0"
