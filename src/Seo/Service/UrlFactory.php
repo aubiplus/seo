@@ -1,0 +1,35 @@
+<?php
+namespace Aubiplus\Seo\Service;
+
+use Zend\Config\Config;
+use Zend\ServiceManager\FactoryInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
+
+/**
+ * Class UrlFactory
+ *
+ * @package Aubiplus\Seo\Service
+ * @author  Fabian Köstring
+ */
+class UrlFactory implements FactoryInterface
+{
+    /**
+     * @param ServiceLocatorInterface $serviceLocator
+     *
+     * @return Url
+     * @author Fabian Köstring
+     */
+    public function createService(ServiceLocatorInterface $serviceLocator)
+    {
+        $applicationConfig = $serviceLocator->get('Configuration');
+        if (!isset($applicationConfig['seo'])) {
+            throw new \Exception('Configuration of Seo-Module not set.');
+        }
+
+        $seoConfig = new Config($applicationConfig['seo']);
+
+        return new Url(
+            $seoConfig
+        );
+    }
+}
