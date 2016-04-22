@@ -1,7 +1,7 @@
 <?php
 namespace Aubiplus\Seo\View\Helper;
 
-use Zend\Form\View\Helper\AbstractHelper;
+use Zend\View\Helper\AbstractHelper;
 use Aubiplus\Seo\Service;
 
 /**
