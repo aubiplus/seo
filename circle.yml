@@ -1,0 +1,9 @@
+machine:
+    php:
+        version: 7.0.3
+    timezone: Europe/Berlin
+
+dependencies:
+    pre:
+        - php -v
+
