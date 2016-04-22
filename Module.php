@@ -1,35 +1,7 @@
 <?php
-namespace Aubiplus\Seo;
-
-use Zend\Loader\StandardAutoloader;
-
 /**
- * Class Module
- *
- * @package Aubiplus\Seo
- * @author  Fabian Köstring
+ * This file is placed here for compatibility with Zendframework 2's ModuleManager.
+ * It allows usage of this module even without composer.
+ * The original Module.php is in 'src/Seo' in order to respect PSR-0
  */
-class Module
-{
-    /**
-     * {@InheritDoc}
-     */
-    public function getConfig()
-    {
-        return include __DIR__ . '/config/module.config.php';
-    }
-
-    /**
-     * {@InheritDoc}
-     */
-    public function getAutoloaderConfig()
-    {
-        return array(
-            StandardAutoloader::class => array(
-                'namespaces' => array(
-                    __NAMESPACE__ => __DIR__ . '/src/Seo/',
-                ),
-            ),
-        );
-    }
-}
+require_once __DIR__ . '/src/Seo/Module.php';

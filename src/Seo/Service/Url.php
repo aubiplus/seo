@@ -35,8 +35,8 @@ class Url
     {
         $string = trim($string);
 
-        if ($this->validate($string) != true) {
-            throw new \Exception('String does not have a valid format.');
+        if (empty($string)) {
+            throw new \Exception('No string was supplied.');
         }
 
         $transformation = array(
@@ -57,26 +57,6 @@ class Url
     }
 
     /**
-     * @param string $string
-     *
-     * @return bool
-     * @throws \Exception
-     * @author Fabian Köstring
-     */
-    private function validate(string $string)
-    {
-        if (empty($string)) {
-            throw new \Exception('No string was supplied.');
-        }
-
-        if (!is_string($string)) {
-            throw new \Exception('Given variable is not string.');
-        }
-
-        return true;
-    }
-
-    /**
      * @param String $string
      *
      * @return String
@@ -84,6 +64,10 @@ class Url
      */
     private function convert(String $string)
     {
+        if (!$this->config->offsetExists('chars')) {
+            return $string;
+        }
+
         $chars = $this->config->get('chars')->toArray();
         $from = array_keys($chars);
         $to = array_values($chars);

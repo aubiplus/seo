@@ -21,7 +21,7 @@ class UrlFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $applicationConfig = $serviceLocator->get('Configuration');
+        $applicationConfig = $serviceLocator->get('Config');
         if (!isset($applicationConfig['seo'])) {
             throw new \Exception('Configuration of Seo-Module not set.');
         }
