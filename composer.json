@@ -5,14 +5,15 @@
   "type": "library",
   "keywords": [
     "zf2",
-    "zend framework 2"
+    "zend framework 2",
+    "url",
+    "seo",
+    "controller plugin",
+    "view helper",
+    "service"
   ],
   "homepage": "https://github.com/aubiplus/seo",
   "authors": [
-    {
-      "name": "Marco Rieger",
-      "email": "marco.rieger@aubi-plus.de"
-    },
     {
       "name": "Fabian Köstring",
       "email": "fabian.koestring@aubi-plus.de"
