@@ -1,6 +1,6 @@
 {
   "name": "aubiplus/seo",
-  "description": "",
+  "description": "In your view scripts or controller actions, often it is necessary to convert strings to perform well in urls. You can use this helper classes to perform these behaviors for you.",
   "license": "MIT",
   "type": "library",
   "keywords": [
