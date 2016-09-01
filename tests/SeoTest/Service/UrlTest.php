@@ -105,4 +105,14 @@ class UrlTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals('just-a-test', $service->create('     just a test     '));
     }
+
+    /**
+     * @author Fabian Köstring
+     */
+    public function testCreateWillRemoveDashFromBeginningAndEnd()
+    {
+        $service = new UrlService(new Config(['seperator' => '-']));
+
+        $this->assertEquals('just-a-test', $service->create('-just a test-'));
+    }
 }

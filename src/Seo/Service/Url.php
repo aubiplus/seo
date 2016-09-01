@@ -53,6 +53,7 @@ class Url
         }
 
         $string = mb_strtolower($string);
+        $string = trim($string, '-');
         return trim($string);
     }
 
