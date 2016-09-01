@@ -1,6 +1,5 @@
 # Seo
 
-## Introduction
 In your view scripts or controller actions, often it is necessary to convert strings to perform well in urls. You can use this helper classes to perform these behaviors for you.
 
 For example: The string `this is just an example` will be converted to `this-is-just-an-example`.
