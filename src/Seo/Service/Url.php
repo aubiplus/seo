@@ -53,7 +53,7 @@ class Url
         }
 
         $string = mb_strtolower($string);
-        $string = trim($string, '-');
+        $string = trim($string, $this->config->get('seperator'));
         return trim($string);
     }
 
