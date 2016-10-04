@@ -1,7 +1,11 @@
 <?php
 namespace Aubiplus\Seo\Controller\Plugin;
 
-use Zend\ServiceManager\FactoryInterface;
+use Interop\Container\ContainerInterface;
+use Interop\Container\Exception\ContainerException;
+use Zend\ServiceManager\Exception\ServiceNotCreatedException;
+use Zend\ServiceManager\Exception\ServiceNotFoundException;
+use Zend\ServiceManager\Factory\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\View\HelperPluginManager;
 use Aubiplus\Seo\Service;
@@ -15,19 +19,17 @@ use Aubiplus\Seo\Service;
 class UrlFactory implements FactoryInterface
 {
     /**
-     * @param ServiceLocatorInterface $serviceLocator
+     * @param ContainerInterface $container
+     * @param string             $requestedName
+     * @param array|null         $options
      *
      * @return Url
      * @author Fabian Köstring
      */
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        /* @var HelperPluginManager $serviceLocator */
-        /* @var ServiceLocatorInterface $serviceManager */
-        $serviceManager = $serviceLocator->getServiceLocator();
-
         /** @var Service\Url $urlService */
-        $urlService = $serviceManager->get(Service\Url::class);
+        $urlService = $container->get(Service\Url::class);
 
         return new Url(
             $urlService
