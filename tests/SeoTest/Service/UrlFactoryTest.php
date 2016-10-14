@@ -24,7 +24,7 @@ class UrlFactoryTest extends PHPUnit_Framework_TestCase
         $serviceManager->setService('Config', ['seo' => []]);
 
         $urlFactory = new Service\UrlFactory();
-        $service = $urlFactory($serviceManager, self::class);
+        $service = $urlFactory->createService($serviceManager);
         $this->assertTrue($service instanceof Service\Url);
     }
 
@@ -39,7 +39,7 @@ class UrlFactoryTest extends PHPUnit_Framework_TestCase
         $serviceManager->setService('Config', []);
 
         $urlFactory = new Service\UrlFactory();
-        $service = $urlFactory($serviceManager, self::class);
+        $service = $urlFactory->createService($serviceManager);
         $this->assertTrue($service instanceof Service\Url);
     }
 }

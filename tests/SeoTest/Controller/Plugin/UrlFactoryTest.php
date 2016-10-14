@@ -28,8 +28,11 @@ class UrlFactoryTest extends PHPUnit_Framework_TestCase
         $serviceManager->setService('Config', ['seo' => []]);
         $serviceManager->setService(Service\Url::class, $urlServiceMock);
 
+        $helperPluginManager = new HelperPluginManager();
+        $helperPluginManager->setServiceLocator($serviceManager);
+
         $urlFactory = new Plugin\UrlFactory();
-        $service = $urlFactory($serviceManager, self::class);
+        $service = $urlFactory->createService($helperPluginManager);
         $this->assertTrue($service instanceof Plugin\Url);
     }
 }

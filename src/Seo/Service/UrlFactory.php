@@ -6,7 +6,7 @@ use Interop\Container\Exception\ContainerException;
 use Zend\Config\Config;
 use Zend\ServiceManager\Exception\ServiceNotCreatedException;
 use Zend\ServiceManager\Exception\ServiceNotFoundException;
-use Zend\ServiceManager\Factory\FactoryInterface;
+use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
@@ -18,17 +18,15 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 class UrlFactory implements FactoryInterface
 {
     /**
-     * @param ContainerInterface $container
-     * @param string             $requestedName
-     * @param array|null         $options
+     * @param ServiceLocatorInterface $serviceLocator
      *
      * @return Url
      * @throws \Exception
      * @author Fabian Köstring
      */
-    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
+    public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $applicationConfig = $container->get('Config');
+        $applicationConfig = $serviceLocator->get('Config');
         if (!isset($applicationConfig['seo'])) {
             throw new \Exception('Configuration of Seo-Module not set.');
         }
